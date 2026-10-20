@@ -1,8 +1,8 @@
-# Contributing to claude-agents
+# Contributing
 
-Thanks for your interest in contributing. This marketplace ships to seven agentic
-harnesses (Claude Code, OpenAI Codex CLI, Cursor, OpenCode, the Antigravity CLI, GitHub Copilot, Pi) from a single
-Markdown source.
+<a id="contributing-to-claude-agents"></a>
+
+The repository supports seven coding tools: Claude Code, OpenAI Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi. Author shared Markdown under `plugins/` in the canonical Claude Code source format. Adapters handle the formats used by other tools.
 
 ## Start here
 
@@ -29,9 +29,10 @@ Full frontmatter conventions in [`docs/authoring.md`](docs/authoring.md).
 - Plugin content must not funnel users to paid products, affiliate programs, or
   revenue-sharing services. Submissions whose primary purpose is promotion are
   closed as spam.
-- If a plugin wraps a third-party API, package, or service that you own or
-  maintain, disclose that relationship in the PR description and the plugin
-  README.
+- List every external API, package, or service that a plugin calls or
+  recommends in the proposal issue. If you own, maintain, work for, or earn
+  money from any of them, disclose that relationship and any paid tier in the
+  proposal issue, the PR description, and the plugin README.
 - Plugin payloads must not contain runnable machinery for collecting payment or
   gating access. A script that takes payment, verifies a transaction, or grants
   and revokes access to a repository or service is out of scope, whether it
@@ -104,8 +105,8 @@ Your content ships to seven harnesses — some have stricter conventions than Cl
 - **OpenCode** requires lowercase tool names. Don't write `` `Read` `` inline — write
   *"open the file"* or use the lowercase form.
 - **Cursor** doesn't honor per-agent `tools:` allowlists — use it as a hint only.
-- **Copilot** maps Claude model aliases (`opus`/`sonnet`/`haiku`) to the GPT-5 family;
-  agent `description` must be a plain string.
+- **Copilot** maps Claude model aliases to native Claude model IDs, including `claude-opus-4.8`,
+  `claude-sonnet-5`, and `claude-haiku-4.5`. Agent `description` must be a plain string.
 - **Antigravity CLI** passes unmapped tool names through its allowlist unchanged;
   maps model aliases to tier values (`pro`/`flash`/`inherit`); commands transpile
   to Gemini-style TOML with the body always inlined.
@@ -124,7 +125,8 @@ read [`docs/authoring.md`](docs/authoring.md) for the full guide.
 
 ## Workflow
 
-1. Open an issue first (template-driven). Use the appropriate issue template.
+1. Open an issue first (template-driven). Use the appropriate issue template, and
+   wait for a maintainer to reply before you start the pull request.
 2. Fork the repo, branch from `main`.
 3. Make changes; run quality gates.
 4. Open a PR referencing the issue.
